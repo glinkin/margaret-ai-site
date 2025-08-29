@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MargaretAI - Персональный ИИ-ассистент по уходу за кожей</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFB6C1',
+                        secondary: '#FF69B4',
+                        accent: '#FF1493',
+                        dark: '#C71585',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255,182,193,0.9) 0%, rgba(255,105,180,0.9) 100%);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(199, 21, 133, 0.2);
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans smooth-scroll bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <a href="#" class="ml-3 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">MargaretAI</a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-accent transition">Возможности</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-accent transition">Как это работает</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-accent transition">Отзывы</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-accent transition">Тарифы</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hidden md:block px-4 py-2 text-accent font-medium hover:text-dark transition">Войти</a>
+                    <a href="#cta" class="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full font-medium hover:from-accent hover:to-dark transition shadow-lg shadow-pink-200">Попробовать бесплатно</a>
+                </div>
+                
+                <button class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Персональный ИИ-ассистент по уходу за кожей</h1>
+                    <p class="text-xl text-white opacity-90 mb-8">MargaretAI анализирует вашу кожу и создаёт индивидуальную рутину ухода с идеально подобранными продуктами.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#cta" class="px-8 py-4 bg-white text-accent font-bold rounded-full hover:bg-gray-100 transition shadow-lg text-center">Начать бесплатно</a>
+                        <a href="#how-it-works" class="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:bg-opacity-20 transition text-center">Как это работает</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-80 h-80 md:w-96 md:h-96 bg-white rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="MargaretAI" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                    <i class="fas fa-brain text-white text-xl"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="font-bold text-gray-800">Анализ завершён!</p>
+                                    <p class="text-xs text-gray-600">Ваша рутина готова</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-500 mb-8">Работаем с лучшими брендами</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <img src="https://via.placeholder.com/120x40?text=Brand+1" alt="Brand 1" class="h-8 opacity-60 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x40?text=Brand+2" alt="Brand 2" class="h-8 opacity-60 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x40?text=Brand+3" alt="Brand 3" class="h-8 opacity-60 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x40?text=Brand+4" alt="Brand 4" class="h-8 opacity-60 hover:opacity-100 transition">
+                <img src="https://via.placeholder.com/120x40?text=Brand+5" alt="Brand 5" class="h-8 opacity-60 hover:opacity-100 transition">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Умный уход за кожей</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">MargaretAI использует искусственный интеллект для создания персонализированных рекомендаций по уходу за вашей кожей</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-camera-retro text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Анализ кожи</h3>
+                    <p class="text-gray-600">Просто сделайте селфи, и наш ИИ проанализирует состояние вашей кожи, выявит проблемы и особенности.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Персонализированные рекомендации</h3>
+                    <p class="text-gray-600">Получайте индивидуальные советы по уходу, подобранные специально для вашего типа кожи и её потребностей.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-alt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Ежедневная рутина</h3>
+                    <p class="text-gray-600">MargaretAI создаёт для вас пошаговую программу ухода на каждый день с напоминаниями и отслеживанием прогресса.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-shopping-bag text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Подбор косметики</h3>
+                    <p class="text-gray-600">Наш ИИ рекомендует продукты, которые действительно подходят вам, с возможностью покупки в партнёрских магазинах.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Отслеживание прогресса</h3>
+                    <p class="text-gray-600">Регулярные отчёты покажут, как меняется состояние вашей кожи с течением времени.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg feature-card transition duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Поддержка 24/7</h3>
+                    <p class="text-gray-600">MargaretAI всегда на связи, чтобы ответить на ваши вопросы о коже и уходе за ней.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Как работает MargaretAI</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Всего 4 простых шага к здоровой и сияющей коже</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <div class="relative">
+                        <div class="w-full h-96 bg-gradient-to-br from-primary to-accent rounded-3xl shadow-xl flex items-center justify-center">
+                            <div class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-mobile-alt text-accent text-7xl"></i>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg w-64">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="font-bold text-gray-800">Готово!</p>
+                                    <p class="text-xs text-gray-600">Ваша рутина создана</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12">
+                    <!-- Step 1 -->
+                    <div class="flex mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center">
+                                <span class="text-accent font-bold text-2xl">1</span>
+                            </div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Сделайте селфи</h3>
+                            <p class="text-gray-600">Сфотографируйте своё лицо при хорошем освещении. Наш ИИ проанализирует состояние вашей кожи.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="flex mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center">
+                                <span class="text-accent font-bold text-2xl">2</span>
+                            </div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ответьте на вопросы</h3>
+                            <p class="text-gray-600">Помогите ИИ лучше понять ваши привычки и предпочтения в уходе за кожей.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="flex mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center">
+                                <span class="text-accent font-bold text-2xl">3</span>
+                            </div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Получите рекомендации</h3>
+                            <p class="text-gray-600">MargaretAI создаст персонализированную программу ухода с конкретными продуктами.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-primary bg-opacity-20 flex items-center justify-center">
+                                <span class="text-accent font-bold text-2xl">4</span>
+                            </div>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Следуйте программе</h3>
+                            <p class="text-gray-600">Ежедневные напоминания и отслеживание прогресса помогут вам добиться лучших результатов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 hero-gradient">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Отзывы наших пользователей</h2>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">Узнайте, как MargaretAI изменил уход за кожей для тысяч людей</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Анна К.</h4>
+                            <p class="text-sm text-gray-600">Пользователь 2 года</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"MargaretAI буквально спас мою кожу! После лет борьбы с акне, ИИ подобрал идеальную рутину, и теперь моя кожа чистая и сияющая."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Елена С.</h4>
+                            <p class="text-sm text-gray-600">Пользователь 1 год</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Я всегда тратила кучу денег на ненужную косметику. MargaretAI помог понять, что действительно нужно моей коже, и теперь я экономлю!"</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="p-8 rounded-2xl testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-800">Максим П.</h4>
+                            <p class="text-sm text-gray-600">Пользователь 6 месяцев</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Как мужчина, я мало что понимал в уходе за кожей. MargaretAI объяснил всё просто и подобрал минимальную, но эффективную рутину."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-6 py-3 bg-white text-accent font-medium rounded-full hover:bg-gray-100 transition shadow-lg">Больше отзывов</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Выберите свой план</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Найдите вариант, который подходит именно вам</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-gray-200 hover:border-accent transition">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Бесплатно</h3>
+                        <p class="text-gray-600">Для тех, кто хочет попробовать</p>
+                    </div>
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold text-gray-800">0₽</span>
+                        <span class="text-gray-600">/месяц</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Базовый анализ кожи</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Общие рекомендации</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-3"></i>
+                            <span>Персонализированная рутина</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-3"></i>
+                            <span>Подбор косметики</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-gray-300 mr-3"></i>
+                            <span>Отслеживание прогресса</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full py-3 px-6 text-center bg-gray-100 text-gray-800 font-medium rounded-full hover:bg-gray-200 transition">Начать бесплатно</a>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-accent transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-accent text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-medium">Популярный</div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Премиум</h3>
+                        <p class="text-gray-600">Для максимальных результатов</p>
+                    </div>
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold text-gray-800">990₽</span>
+                        <span class="text-gray-600">/месяц</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Полный анализ кожи</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Персонализированная рутина</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Подбор косметики</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Отслеживание прогресса</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Поддержка 24/7</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full py-3 px-6 text-center bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full hover:from-accent hover:to-dark transition shadow-lg">Выбрать премиум</a>
+                </div>
+                
+                <!-- Family Plan -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-gray-200 hover:border-accent transition">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Семейный</h3>
+                        <p class="text-gray-600">Для всей семьи</p>
+                    </div>
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold text-gray-800">1,490₽</span>
+                        <span class="text-gray-600">/месяц</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>До 5 пользователей</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Все возможности Премиум</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Детские рекомендации</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Семейные скидки на косметику</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Общий календарь ухода</span>
+                        </li>
+                    </ul>
+                    <a href="#cta" class="block w-full py-3 px-6 text-center bg-gray-100 text-gray-800 font-medium rounded-full hover:bg-gray-200 transition">Выбрать семейный</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-gradient-to-r from-primary to-accent rounded-3xl p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Готовы преобразить свою кожу?</h2>
+                <p class="text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">Начните бесплатно сегодня и получите персональные рекомендации уже через 5 минут</p>
+                <form class="max-w-md mx-auto">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Ваш email" class="flex-grow px-6 py-4 rounded-full focus:outline-none">
+                        <button type="submit" class="px-8 py-4 bg-white text-accent font-bold rounded-full hover:bg-gray-100 transition shadow-lg whitespace-nowrap">Попробовать бесплатно</button>
+                    </div>
+                </form>
+                <p class="text-white opacity-80 mt-4 text-sm">Нажимая кнопку, вы соглашаетесь с нашей <a href="#" class="underline">Политикой конфиденциальности</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Часто задаваемые вопросы</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ответы на самые популярные вопросы о MargaretAI</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ 1 -->
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-md">
+                    <button class="flex items-center justify-between w-full focus:outline-none">
+                        <h3 class="text-lg font-medium text-gray-800">Как MargaretAI анализирует мою кожу?</h3>
+                        <i class="fas fa-chevron-down text-accent ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Наш ИИ использует передовые алгоритмы компьютерного зрения для анализа фотографий вашей кожи. Он оценивает такие параметры, как увлажнённость, текстура, наличие воспалений, морщин и пигментации. Анализ учитывает более 50 различных характеристик кожи.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-md">
+                    <button class="flex items-center justify-between w-full focus:outline-none">
+                        <h3 class="text-lg font-medium text-gray-800">Насколько точны рекомендации MargaretAI?</h3>
+                        <i class="fas fa-chevron-down text-accent ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Точность рекомендаций MargaretAI составляет 92%, что подтверждено независимыми исследованиями. Наш ИИ обучался на данных более 100,000 пользователей и постоянно совершенствуется. Однако для серьёзных кожных заболеваний мы рекомендуем консультацию дерматолога.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-md">
+                    <button class="flex items-center justify-between w-full focus:outline-none">
+                        <h3 class="text-lg font-medium text-gray-800">Можно ли использовать MargaretAI для детской кожи?</h3>
+                        <i class="fas fa-chevron-down text-accent ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Да, MargaretAI имеет специальный режим для детей от 3 лет. В Семейном тарифе предусмотрены отдельные рекомендации для детской кожи, учитывающие её особенности. Для младенцев до 3 лет мы рекомендуем консультацию педиатра.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="mb-6 bg-white p-6 rounded-2xl shadow-md">
+                    <button class="flex items-center justify-between w-full focus:outline-none">
+                        <h3 class="text-lg font-medium text-gray-800">Как часто нужно обновлять анализ кожи?</h3>
+                        <i class="fas fa-chevron-down text-accent ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Мы рекомендуем делать новый анализ каждые 2-4 недели, чтобы MargaretAI мог корректировать вашу рутину в зависимости от изменений состояния кожи, сезона и других факторов. При серьёзных изменениях (например, аллергической реакции) анализ стоит сделать немедленно.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <button class="flex items-center justify-between w-full focus:outline-none">
+                        <h3 class="text-lg font-medium text-gray-800">Можно ли отменить подписку в любой момент?</h3>
+                        <i class="fas fa-chevron-down text-accent ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Да, вы можете отменить подписку в любое время в настройках вашего аккаунта. После отмены у вас останется доступ к премиум-функциям до конца оплаченного периода. Мы не берём плату за отмену подписки и не требуем объяснения причин.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Logo and About -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-xl"></i>
+                        </div>
+                        <a href="#" class="ml-3 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">MargaretAI</a>
+                    </div>
+                    <p class="text-gray-400 mb-6">Персональный ИИ-ассистент по уходу за кожей. Подбираем идеальный домашний уход с 2021 года.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Быстрые ссылки</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Возможности</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition">Как это работает</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Отзывы</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Тарифы</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Поддержка</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Помощь</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Политика конфиденциальности</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Условия использования</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Подпишитесь на рассылку</h3>
+                    <p class="text-gray-400 mb-4">Получайте советы по уходу за кожей и эксклюзивные предложения.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Ваш email" class="px-4 py-3 bg-gray-800 text-white rounded-l-lg focus:outline-none focus:ring-2 focus:ring-accent w-full">
+                        <button type="submit" class="px-4 bg-accent rounded-r-lg hover:bg-dark transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 MargaretAI. Все права защищены.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-apple text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-google-play text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('footer button').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const content = faqItem.querySelector('div');
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Mobile menu toggle (placeholder)
+        document.querySelector('.md\\:hidden').addEventListener('click', () => {
+            alert('Мобильное меню будет здесь');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
